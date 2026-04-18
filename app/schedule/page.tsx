@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import React, { useEffect, useMemo, useState } from "react";
 import SiteHeader from "../components/SiteHeader";
 
@@ -252,14 +251,16 @@ export default function SchedulePage() {
   const [pendingWeekBoundary, setPendingWeekBoundary] = useState<
     "start" | "end" | null
   >(null);
-  const searchParams = useSearchParams();
-  const serviceLevel = searchParams.get("serviceLevel")?.trim() || "";
+  const [serviceLevel, setServiceLevel] = useState("");
 
   useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
     const priceParam = searchParams.get("price");
+    const serviceLevelParam = searchParams.get("serviceLevel");
     const nextPrice = priceParam ? Number(priceParam) : 300;
     setPrice(Number.isFinite(nextPrice) ? nextPrice : 300);
-  }, [searchParams]);
+    setServiceLevel(serviceLevelParam?.trim() || "");
+  }, []);
 
   useEffect(() => {
     function syncViewportMode() {
