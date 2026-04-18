@@ -1,0 +1,10 @@
+DATABASE_URL=postgresql://neondb_owner:npg_wFmzD9n6VkpY@ep-red-glitter-amy67n7p-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+RESEND_API_KEY=re_S7kfZrtW_CtCGtZ7sLDA4HfKNjdygo1JG
+BOOKING_NOTIFICATION_FROM=Natural Cleaners <julian@naturalcleanaz.com>
+BOOKING_NOTIFICATION_TO=julian@naturalcleanaz.com,anahi@naturalcleanaz.com
+GOOGLE_CLIENT_ID=550010126793-t5v865ipotm3hr6i76b8n6nm6s4ao9s5.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
+GOOGLE_CALENDAR_ID=c_544063c7ba057477bc6db05f652ab62a90a3544d68ed77b9cb5f5ce8d7e38103@group.calendar.google.com
+NEXT_PUBLIC_APP_URL=https://placeholder.vercel.app
+GOOGLE_REDIRECT_URI=https://placeholder.vercel.app/api/auth/callback
+

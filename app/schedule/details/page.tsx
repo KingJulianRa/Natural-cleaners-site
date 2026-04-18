@@ -20,8 +20,9 @@ export default async function BookingDetailsPage({
   const slotEnd = params.slotEnd ?? "";
   const serviceLevel = params.serviceLevel ?? "";
 
-  const missingServiceLevel =
-    Number.isFinite(price) && slotLabel && slotStart && slotEnd && !serviceLevel;
+  const missingServiceLevel = Boolean(
+    Number.isFinite(price) && slotLabel && slotStart && slotEnd && !serviceLevel
+  );
 
   const draft =
     Number.isFinite(price) && slotLabel && slotStart && slotEnd && serviceLevel
