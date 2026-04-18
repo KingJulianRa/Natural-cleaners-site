@@ -63,15 +63,15 @@ export async function getStoredGoogleTokens(): Promise<StoredGoogleTokens | null
   await ensureGoogleTokensTable();
 
   const sql = getSql();
-  const rows = await sql<{
-    access_token: string;
-    refresh_token: string;
-  }>`
+  const rows = (await sql`
     SELECT access_token, refresh_token
     FROM google_oauth_tokens
     WHERE id = 'primary'
     LIMIT 1;
-  `;
+  `) as Array<{
+    access_token: string;
+    refresh_token: string;
+  }>;
 
   const row = rows[0];
 
