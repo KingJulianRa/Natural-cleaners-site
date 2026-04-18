@@ -1,0 +1,86 @@
+[
+  {
+    "id": "efa9baef-f094-4760-8113-0985c8f3cf9f",
+    "submittedAt": "2026-04-14T05:26:55.396Z",
+    "name": "Julian Ramos",
+    "address": "8945 W Montecito Ave",
+    "phone": "4806797217",
+    "email": "julian.ramos0721@gmail.com",
+    "price": 361.30500000000006,
+    "slotLabel": "1:30 PM",
+    "slotStart": "2026-04-14T20:30:00.000Z",
+    "slotEnd": "2026-04-14T23:30:00.000Z"
+  },
+  {
+    "id": "590a0ba8-2ce0-40fd-a617-f30952837f8d",
+    "submittedAt": "2026-04-14T06:01:33.245Z",
+    "name": "Bea Bianca C. Ramos",
+    "address": "8945 W Montecito Ave",
+    "phone": "Cutie girl",
+    "email": "prinsesako@mylove.com",
+    "price": 220.875,
+    "slotLabel": "1:30 PM",
+    "slotStart": "2026-04-14T20:30:00.000Z",
+    "slotEnd": "2026-04-14T22:30:00.000Z"
+  },
+  {
+    "id": "7f199696-19dc-478b-bbb4-d8fc05b84761",
+    "submittedAt": "2026-04-14T06:14:23.206Z",
+    "name": "123",
+    "address": "123",
+    "phone": "asdfasdfasdf",
+    "email": "julian.ramos@gmail.com",
+    "price": 318.84375,
+    "slotLabel": "1:30 PM",
+    "slotStart": "2026-04-14T20:30:00.000Z",
+    "slotEnd": "2026-04-14T23:30:00.000Z"
+  },
+  {
+    "id": "67a88c7d-0834-4c4c-bd3e-a8f9c4e2e4be",
+    "submittedAt": "2026-04-14T06:16:31.468Z",
+    "name": "123",
+    "address": "123",
+    "phone": "123-123-1234",
+    "email": "julian@gmail.com",
+    "price": 318.84375,
+    "slotLabel": "1:30 PM",
+    "slotStart": "2026-04-14T20:30:00.000Z",
+    "slotEnd": "2026-04-14T23:30:00.000Z"
+  },
+  {
+    "id": "131251ac-bdf0-4d1b-9d10-5fb74e5a99bd",
+    "submittedAt": "2026-04-14T06:16:47.546Z",
+    "name": "1",
+    "address": "1",
+    "phone": "(123)213-1234",
+    "email": "j@gmail.com",
+    "price": 318.84375,
+    "slotLabel": "1:30 PM",
+    "slotStart": "2026-04-14T20:30:00.000Z",
+    "slotEnd": "2026-04-14T23:30:00.000Z"
+  },
+  {
+    "id": "b76e5408-4528-4764-88b3-1ca938756910",
+    "submittedAt": "2026-04-15T04:24:56.865Z",
+    "name": "kljasdf",
+    "address": "asdkfj",
+    "phone": "123-123-1234",
+    "email": "alaksdjfl@gmail.com",
+    "price": 220.875,
+    "slotLabel": "7:00 AM",
+    "slotStart": "2026-04-16T14:00:00.000Z",
+    "slotEnd": "2026-04-16T16:00:00.000Z"
+  },
+  {
+    "id": "a264de24-88d9-4054-a018-2ffc2a2ffea7",
+    "submittedAt": "2026-04-17T04:50:20.495Z",
+    "name": "Try1",
+    "address": "Try1",
+    "phone": "1231231234",
+    "email": "2134@gmail.com",
+    "price": 189.28750000000002,
+    "slotLabel": "7:00 AM",
+    "slotStart": "2026-04-20T14:00:00.000Z",
+    "slotEnd": "2026-04-20T16:00:00.000Z"
+  }
+]
