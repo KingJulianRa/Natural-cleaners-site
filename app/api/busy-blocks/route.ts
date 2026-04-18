@@ -2,13 +2,17 @@ import { google } from "googleapis";
 import { NextRequest, NextResponse } from "next/server";
 import { getGoogleCalendarId } from "@/lib/google-calendar-config";
 import { getGoogleRedirectUri } from "@/lib/google-oauth";
+import { getStoredGoogleTokens } from "@/lib/google-token-store";
 
 export async function GET(request: NextRequest) {
   try {
-    const accessToken = request.cookies.get("google_access_token")?.value;
-    const refreshToken = request.cookies.get("google_refresh_token")?.value;
+    const cookieAccessToken = request.cookies.get("google_access_token")?.value;
+    const cookieRefreshToken = request.cookies.get("google_refresh_token")?.value;
+    const storedTokens = await getStoredGoogleTokens();
+    const accessToken = cookieAccessToken || storedTokens?.accessToken || "";
+    const refreshToken = cookieRefreshToken || storedTokens?.refreshToken || "";
 
-    if (!accessToken) {
+    if (!accessToken && !refreshToken) {
       return NextResponse.json({ busyBlocks: [], notConnected: true });
     }
 

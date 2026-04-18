@@ -1,6 +1,7 @@
 import { google } from "googleapis";
 import { NextRequest, NextResponse } from "next/server";
 import { getGoogleRedirectUri } from "@/lib/google-oauth";
+import { saveGoogleTokens } from "@/lib/google-token-store";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -19,6 +20,10 @@ export async function GET(request: NextRequest) {
   const { tokens } = await oauth2Client.getToken({
     code,
     redirect_uri: getGoogleRedirectUri(),
+  });
+  await saveGoogleTokens({
+    accessToken: tokens.access_token ?? null,
+    refreshToken: tokens.refresh_token ?? null,
   });
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, "") || "http://localhost:3000";

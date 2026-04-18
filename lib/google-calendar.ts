@@ -3,6 +3,7 @@ import { google } from "googleapis";
 import type { BookingRecord } from "@/lib/bookings";
 import { getGoogleCalendarId } from "@/lib/google-calendar-config";
 import { getGoogleRedirectUri } from "@/lib/google-oauth";
+import { getStoredGoogleTokens } from "@/lib/google-token-store";
 
 export type BookingCalendarResult = {
   created: boolean;
@@ -97,7 +98,11 @@ export async function createBookingCalendarEvent(
   booking: BookingRecord,
   tokens: CalendarTokens
 ): Promise<BookingCalendarResult> {
-  if (!tokens.accessToken && !tokens.refreshToken) {
+  const storedTokens = await getStoredGoogleTokens();
+  const accessToken = tokens.accessToken || storedTokens?.accessToken || "";
+  const refreshToken = tokens.refreshToken || storedTokens?.refreshToken || "";
+
+  if (!accessToken && !refreshToken) {
     return {
       created: false,
       skipped: true,
@@ -121,8 +126,8 @@ export async function createBookingCalendarEvent(
     );
 
     oauth2Client.setCredentials({
-      access_token: tokens.accessToken,
-      refresh_token: tokens.refreshToken,
+      access_token: accessToken,
+      refresh_token: refreshToken,
     });
 
     const calendar = google.calendar({

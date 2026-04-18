@@ -1,4 +1,4 @@
-import { neon } from "@neondatabase/serverless";
+import { getSql } from "@/lib/database";
 
 export type BookingRecord = {
   id: string;
@@ -17,28 +17,6 @@ export type BookingRecord = {
 type BookingInsert = Omit<BookingRecord, "id" | "submittedAt">;
 
 let initPromise: Promise<void> | null = null;
-
-function getDatabaseUrl() {
-  return (
-    process.env.DATABASE_URL ||
-    process.env.POSTGRES_URL ||
-    process.env.POSTGRES_PRISMA_URL ||
-    process.env.NEON_DATABASE_URL ||
-    ""
-  );
-}
-
-function getSql() {
-  const databaseUrl = getDatabaseUrl();
-
-  if (!databaseUrl) {
-    throw new Error(
-      "Database is not configured. Add DATABASE_URL from your Neon project."
-    );
-  }
-
-  return neon(databaseUrl);
-}
 
 async function ensureBookingsTable() {
   if (!initPromise) {
