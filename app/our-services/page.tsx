@@ -109,9 +109,7 @@ export default function OurServicesPage() {
               maxWidth: 700,
             }}
           >
-            Browse our core cleaning levels below. When you upload your service
-            docs later, we can swap these placeholder outlines for your exact
-            offerings.
+            Browse our core cleaning levels below. 
           </p>
 
           <div
