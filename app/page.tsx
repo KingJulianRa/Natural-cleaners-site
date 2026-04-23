@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
+import {
+  useQuoteEstimator,
+} from "./components/QuoteEstimatorProvider";
 import SiteHeader from "./components/SiteHeader";
 
 const CLEANLINESS_FACTORS = {
@@ -43,12 +46,16 @@ function formatCurrency(value: number) {
 }
 
 export default function Page() {
-  const [houseSize, setHouseSize] = useState("");
-  const [bathrooms, setBathrooms] = useState("");
-  const [bathroomSize, setBathroomSize] = useState("");
-  const [kitchenSize, setKitchenSize] = useState("");
-  const [cleanlinessLevel, setCleanlinessLevel] = useState("");
-  const [serviceLevel, setServiceLevel] = useState("");
+  const { quoteForm, updateQuoteForm } = useQuoteEstimator();
+
+  const {
+    houseSize,
+    bathrooms,
+    bathroomSize,
+    kitchenSize,
+    cleanlinessLevel,
+    serviceLevel,
+  } = quoteForm;
 
   const quote = useMemo(() => {
     const sizeSqFt = Number(houseSize) || 0;
@@ -162,7 +169,7 @@ export default function Page() {
               min="0"
               placeholder="Enter square footage"
               value={houseSize}
-              onChange={(e) => setHouseSize(e.target.value)}
+              onChange={(e) => updateQuoteForm("houseSize", e.target.value)}
             />
 
             <label style={labelStyle}>Number of bathrooms</label>
@@ -172,14 +179,14 @@ export default function Page() {
               min="0"
               placeholder="Enter number of bathrooms"
               value={bathrooms}
-              onChange={(e) => setBathrooms(e.target.value)}
+              onChange={(e) => updateQuoteForm("bathrooms", e.target.value)}
             />
 
             <label style={labelStyle}>Bathroom size</label>
             <select
               style={inputStyle}
               value={bathroomSize}
-              onChange={(e) => setBathroomSize(e.target.value)}
+              onChange={(e) => updateQuoteForm("bathroomSize", e.target.value)}
             >
               <option value="">Select one</option>
               <option value="Small">Small</option>
@@ -191,7 +198,7 @@ export default function Page() {
             <select
               style={inputStyle}
               value={kitchenSize}
-              onChange={(e) => setKitchenSize(e.target.value)}
+              onChange={(e) => updateQuoteForm("kitchenSize", e.target.value)}
             >
               <option value="">Select one</option>
               <option value="Small">Small</option>
@@ -203,7 +210,7 @@ export default function Page() {
             <select
               style={inputStyle}
               value={cleanlinessLevel}
-              onChange={(e) => setCleanlinessLevel(e.target.value)}
+              onChange={(e) => updateQuoteForm("cleanlinessLevel", e.target.value)}
             >
               <option value="">Select one</option>
               <option value="1">1 - Clean</option>
@@ -239,7 +246,7 @@ export default function Page() {
             <select
               style={inputStyle}
               value={serviceLevel}
-              onChange={(e) => setServiceLevel(e.target.value)}
+              onChange={(e) => updateQuoteForm("serviceLevel", e.target.value)}
             >
               <option value="">Select one</option>
               <option value="1">1 - Standard Clean</option>
